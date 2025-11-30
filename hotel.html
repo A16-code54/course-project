@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Recommendations</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff5722, #ff9800);
+            padding: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+             align-items: center;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            align-items: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+            margin-top: 10px;
+            font-size: 16px;
+            align-items: center;
+        }
+
+        button {
+            width: 100%;
+            background: #007bff;
+            color: white;
+            padding: 12px;
+            border: none;
+            margin-top: 12px;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            align-items: center;
+        }
+
+        button:hover {
+            background: #0056b3;
+            align-items: center;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #eef4ff;
+            border-left: 5px solid #007bff;
+            border-radius: 8px;
+            align-items: center;
+        }
+
+        .hotel {
+            background: #fff;
+            margin-bottom: 10px;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            align-items: center;
+        }
+
+        .rating {
+            color: #ff9800;
+            font-weight: bold;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>🏨 Hotel Recommendations</h2>
+
+        <input id="locationInput" type="text" placeholder="Enter your area (e.g., Mumbai, Delhi, Pune)">
+        <button onclick="getHotels()">Get Hotels</button>
+
+        <div id="output" class="result" style="display:none;"></div>
+    </div>
+
+    <script>
+        const hotelData = {
+            "mumbai": [
+                { name: "Taj Mahal Palace", rating: "⭐ 4.8", price: "₹15,000/night" },
+                { name: "Hotel Sea Princess", rating: "⭐ 4.4", price: "₹7,200/night" },
+                { name: "ITC Grand Central", rating: "⭐ 4.6", price: "₹10,000/night" }
+            ],
+
+            "delhi": [
+                { name: "The Leela Palace", rating: "⭐ 4.8", price: "₹16,500/night" },
+                { name: "Hotel Taj Palace", rating: "⭐ 4.7", price: "₹12,000/night" },
+                { name: "Radisson Blu", rating: "⭐ 4.5", price: "₹7,500/night" }
+            ],
+
+            "pune": [
+                { name: "Conrad Pune", rating: "⭐ 4.7", price: "₹10,000/night" },
+                { name: "JW Marriott", rating: "⭐ 4.8", price: "₹12,500/night" },
+                { name: "Hyatt Pune", rating: "⭐ 4.4", price: "₹6,800/night" }
+            ],
+
+            "hyderabad": [
+                { name: "Taj Falaknuma Palace", rating: "⭐ 5.0", price: "₹25,000/night" },
+                { name: "Trident Hyderabad", rating: "⭐ 4.8", price: "₹9,000/night" },
+                { name: "Novotel Hyderabad", rating: "⭐ 4.4", price: "₹6,500/night" }
+            ],
+
+            "chennai": [
+                { name: "The Park Chennai", rating: "⭐ 4.3", price: "₹6,000/night" },
+                { name: "Taj Coromandel", rating: "⭐ 4.7", price: "₹13,000/night" },
+                { name: "ITC Grand Chola", rating: "⭐ 4.8", price: "₹14,500/night" }
+            ]
+
+           
+        };
+
+        function getHotels() {
+            const input = document.getElementById("locationInput").value.toLowerCase().trim();
+            const outputDiv = document.getElementById("output");
+
+            if (hotelData[input]) {
+                let html = `<h3>Best Hotels in ${input.toUpperCase()}</h3>`;
+                
+                hotelData[input].forEach(hotel => {
+                    html += `
+                        <div class="hotel">
+                            <strong>${hotel.name}</strong><br>
+                            <span class="rating">${hotel.rating}</span><br>
+                            <small>${hotel.price}</small>
+                        </div>
+                    `;
+                });
+
+                outputDiv.innerHTML = html;
+                outputDiv.style.display = "block";
+            } 
+            else {
+                outputDiv.innerHTML = `<p>❌ No hotel data found for this location. Try: Mumbai, Delhi, Pune, Hyderabad, Chennai.</p>`;
+                outputDiv.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>

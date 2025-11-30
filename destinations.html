@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination Recommendations</title>
+    <link rel="stylesheet" href="destinations.css">
+
+    <style>
+
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff5722, #ff9800);
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background: #0e71eb;
+    color: white;
+}
+
+header input {
+    width: 70%;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+}
+
+.destinations-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card h2 {
+    margin: 15px;
+    font-size: 1.3rem;
+}
+
+.card p {
+    padding: 0 15px 15px;
+    color: #555;
+}
+
+.explore-btn {
+    display: block;
+    width: 90%;
+    margin: 10px auto 20px;
+    padding: 12px;
+    background: #0e71eb;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.explore-btn:hover {
+    background: #084a9d;
+}
+
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <h1>Explore Top Travel Destinations</h1>
+        <input type="text" id="search" placeholder="Search destinations...">
+    </header>
+
+    <section class="destinations-container" id="destinationList">
+
+        <!-- Destination Card 1 -->
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzAvskouPCjc1yqi7RZXo1epRubv293w48eg&s" alt="Taj Mahal">
+            <h2>Taj Mahal, Agra</h2>
+            <p>One of the Seven Wonders of the World, known for its beauty and architecture.</p>
+            <button class="explore-btn">Explore</button>
+        </div>
+
+        <!-- Destination Card 2 -->
+        <div class="card">
+            <img src="https://www.worldtribune.org/wp-content/uploads/sites/2/2024/01/GettyImages-1191232894.jpg" alt="Jaipur Rajasthan">
+            <h2>Jaipur, Rajasthan</h2>
+            <p>The Pink City famous for forts, palaces, culture & traditional markets.</p>
+            <button class="explore-btn">Explore</button>
+        </div>
+
+        <!-- Destination Card 3 -->
+        <div class="card">
+            <img src="https://lp-cms-production.imgix.net/2025-04/shutterstock2454866115.jpg?auto=format,compress&q=72&w=1440&h=810&fit=crop" alt="Kerala Backwaters">
+            <h2>Kerala Backwaters</h2>
+            <p>Peaceful lagoons, houseboats, greenery and amazing food experiences.</p>
+            <button class="explore-btn">Explore</button>
+        </div>
+
+        <!-- Destination Card 4 -->
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7yOD-wi7sSpSV2tvKCfJABv9hrPQPlhx23w&s" alt="Goa Beach">
+            <h2>Goa Beaches</h2>
+            <p>Beautiful beaches, nightlife, seafood and adventure water sports.</p>
+            <button class="explore-btn">Explore</button>
+        </div>
+
+    </section>
+
+<script>
+    // Simple search filter
+    const searchBar = document.getElementById("search");
+    const cards = document.querySelectorAll(".card");
+
+    searchBar.addEventListener("keyup", () => {
+        let value = searchBar.value.toLowerCase();
+        cards.forEach(card => {
+            let title = card.querySelector("h2").innerText.toLowerCase();
+            card.style.display = title.includes(value) ? "block" : "none";
+        });
+    });
+</script>
+
+</body>
+</html>
