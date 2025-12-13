@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Travel Planner - Home</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        /* Header */
+        header {
+            width: 100%;
+            padding: 20px;
+            background: #ff5722;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 28px;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+       
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: rgb(16, 15, 15);
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .search-box {
+            margin-top: 20px;
+        }
+
+        .search-box input {
+            padding: 12px;
+            width: 300px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+
+        .search-box button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #ff9800;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .search-box button:hover {
+            background: #e68900;
+        }
+
+        
+        #home {
+
+            background: linear-gradient(135deg, #ff5722, #ff9800);
+            color:white;
+
+        }
+        
+        footer {
+            background: #222;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+   
+    <header>
+        <h1>Smart Travel Planner</h1>
+        <nav>
+            <a href="main.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="login.html">Login</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="hotel.html">Hotel</a>
+            <a href="food.html">Food</a>
+            <a href="profilepage.html">Profile page</a>
+        </nav>
+    </header>
+
+   
+    <div class="hero">
+        <div>
+            <h2>Explore India Like Never Before</h2>
+            <p>Your smart guide for travel, culture, food & local experiences.</p>
+
+            <div class="search-box">
+                <input id="searchInput" type="text" placeholder="Search your destination...">
+                <button onclick="goToFoodPage()">Search</button>
+
+               
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <br>
+    <br>
+
+
+     <div id="home">
+                    <h1>Welcome to Rangayatra</h1>
+                    <br><br>
+                    <h3>  Your Smart Travel Companion
+Discover India’s beauty, culture, and hidden gems with a smart travel planner designed just for you.
+Whether you're traveling solo, with friends, or with family, our platform helps you plan smarter, travel better, and experience more.</h3>
+                </div>
+
+
+                <br><br>
+
+
+
+
+    
+    <footer>
+        © 2025 Smart Travel Planner | Made for Project
+    </footer>
+
+    <script>
+       
+        function goToFoodPage() {
+            const place = document.getElementById('searchInput').value;
+            if (place.trim() === "") {
+                alert("Please enter a destination!");
+                return;
+            }
+
+            
+            window.location.href = "food.html?location=" + place;
+        }
+    </script>
+
+</body>
+</html>
